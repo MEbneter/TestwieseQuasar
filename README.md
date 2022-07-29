@@ -1,6 +1,6 @@
 # Quasar App (testwiese)
 
-A Quasar Framework app
+A Quasar Framework app for Testing Vuejs on Quasar an tinkering with JS
 
 ## Install the dependencies
 ```bash
