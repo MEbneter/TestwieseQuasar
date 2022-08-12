@@ -11,26 +11,26 @@
   </q-page>
 </template>
 <script>
-  import ColorPicker from './ColorPicker';
-  export default {
-    components: { ColorPicker },
-    methods: {
-      updateBackgroundColor(color) {
-        this.backgroundColor = color;
-      }
-    },
-    data() {
-      return {
-        backgroundColor: 'wheat',
-        colors: [
-          'bisque',
-          'darkkhaki',
-          'thistle',
-          'wheat'
-        ]
-      }
+import ColorPicker from './ColorPicker'
+export default {
+  components: { ColorPicker },
+  methods: {
+    updateBackgroundColor (color) {
+      this.backgroundColor = color
+    }
+  },
+  data () {
+    return {
+      backgroundColor: 'wheat',
+      colors: [
+        'bisque',
+        'darkkhaki',
+        'thistle',
+        'wheat'
+      ]
     }
   }
+}
 </script>
 
 <style scoped>

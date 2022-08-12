@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import { ref, computed } from 'vue'
 import { useQuasar } from 'quasar'
 export default {
-  name: 'Notifications',
-  setup() {
+  name: 'NotificationsVariants',
+  setup () {
     const $q = useQuasar()
-    const inputText = ref("Hier kann dein persönlicher Alert/Notification-Text stehen")
+    const inputText = ref('Hier kann dein persönlicher Alert/Notification-Text stehen')
 
     const doAlert = function () {
       alert(inputText.value)
@@ -33,26 +33,22 @@ export default {
       $q.notify(inputText.value)
     }
 
-    const isPermitted = computed(()=>{
+    const isPermitted = computed(() => {
       return Notification.permission
     })
 
-    const doNotification = function () { //mdn example
+    const doNotification = function () { // mdn example
       // Let's check if the browser supports notifications
-      if (!("Notification" in window)) {
-        alert("This browser does not support desktop notification");
-      }
-      // Let's check whether notification permissions have alredy been granted
-      else if (Notification.permission === "granted") {
-        var notification = new Notification(inputText.value);
-      }
-      // Otherwise, we need to ask the user for permission
-      else if (Notification.permission !== 'denied') {
+      if (!('Notification' in window)) {
+        alert('This browser does not support desktop notification')
+      } else if (Notification.permission === 'granted') {
+        Notification(inputText.value)
+      } else if (Notification.permission !== 'denied') {
         Notification.requestPermission(function (permission) {
-          if (permission === "granted") {
-            var notification = new Notification(inputText.value);
+          if (permission === 'granted') {
+            Notification(inputText.value)
           }
-        });
+        })
       }
     }
 

@@ -130,16 +130,16 @@ const linksList = [
     icon: 'announcement',
     link: '/console'
   }
-];
+]
 
 import { ref } from 'vue'
 /* import mermaid from "mermaid"; */
-export default({
+export default ({
   name: 'MainLayout',
 
   setup () {
     const leftDrawerOpen = ref(false)
-   /*  mermaid.initialize({startOnLoad:true}) */
+    /*  mermaid.initialize({startOnLoad:true}) */
     return {
       essentialLinks: linksList,
       leftDrawerOpen,

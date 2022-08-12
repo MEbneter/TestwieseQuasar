@@ -24,7 +24,7 @@
       />
     </div>
     <div class="q-mt-sm">
-      Pitch:    
+      Pitch:
       <q-slider
         dense
         v-model="audioSetting.pitch"
@@ -38,7 +38,7 @@
       />
     </div>
     <div class="q-mt-sm">
-      Rate: 
+      Rate:
       <q-slider
         dense
         v-model="audioSetting.rate"
@@ -50,14 +50,14 @@
         :max="5"
         :step="0.5"
       />
-    </div>    
+    </div>
 
     <q-btn push color="white" text-color="primary" class="q-mt-sm" label="Say something" @click="saySomething"/>
   </q-page>
 </template>
 
 <script>
-import {  } from 'vue'
+import { } from 'vue'
 export default {
   components: { },
   name: 'Text2Speech',
@@ -67,35 +67,35 @@ export default {
     this.voices = this.synth.getVoices()
     setTimeout(() => {
       this.getVoices()
-    }, 200);
+    }, 200)
   },
   mounted () {
     setTimeout(() => {
       this.getVoices()
       this.voice = this.voicesArr[0]
-    }, 500);
+    }, 500)
   },
 
   computed: {
     voicesArr () { return this.voices.map((el) => el.name) },
-    chosenVoice () { return this.voices.filter((el)=> el.name === this.voice )}
+    chosenVoice () { return this.voices.filter((el) => el.name === this.voice) }
   },
 
   methods: {
-    getVoices (){
+    getVoices () {
       this.synth = window.speechSynthesis
       this.voices = this.synth.getVoices()
     },
     saySomething (e) {
-      e.preventDefault();
-      const utterThis = new SpeechSynthesisUtterance(this.inputText);
+      e.preventDefault()
+      const utterThis = new SpeechSynthesisUtterance(this.inputText)
 
       console.log(this.chosenVoice[0])
       utterThis.pitch = this.audioSetting.pitch
       utterThis.volume = this.audioSetting.volume
       utterThis.rate = this.audioSetting.rate
       utterThis.voice = this.chosenVoice[0]
-      this.synth.speak(utterThis);
+      this.synth.speak(utterThis)
     }
   },
 

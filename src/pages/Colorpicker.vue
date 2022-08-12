@@ -7,23 +7,24 @@
     :key="color"
     color="white"
     @click="chosenColor(color)"
-    text-color="black" 
+    text-color="black"
     :label="color" />
   </div>
 </template>
 <script>
-export default {  
+export default {
+  name: 'ColorPicker',
   props: {
-    colors:{
+    colors: {
       type: Array,
-      default: ()=>{}
+      default: () => {}
     }
   },
 
   methods: {
-    chosenColor(color) {
-      this.$emit("color-chosen", color);
+    chosenColor (color) {
+      this.$emit('color-chosen', color)
     }
   }
-};
+}
 </script>

@@ -10,7 +10,7 @@
       <div ref="foo" class="ball"></div>
     </div>
     <div class="theme-container q-my-sm">
-      
+
       <div class="text-h6">Color ease conditional to your Mouse-xPos</div>
       <div
         @mousemove="onMousemove"
@@ -25,24 +25,24 @@
 
 <script>
 export default {
-  name: 'Transitions',
+  name: 'CssTransitions',
   mounted () {
     const ball = this.$refs.foo
     const container = this.$refs.ballspace
-    const containerHalfHeight = 0-container.offsetHeight/2
-    const containerHalfWidth = 0-container.offsetWidth/2
-    ball.style.top = containerHalfHeight+'px'
-    ball.style.left = containerHalfWidth+'px'
+    const containerHalfHeight = 0 - container.offsetHeight / 2
+    const containerHalfWidth = 0 - container.offsetWidth / 2
+    ball.style.top = containerHalfHeight + 'px'
+    ball.style.left = containerHalfWidth + 'px'
   },
   unmounted () {
-    if(this.$refs.ballspace)this.$refs.ballspace.removeEventListener('click', this.moveBall)
+    if (this.$refs.ballspace) this.$refs.ballspace.removeEventListener('click', this.moveBall)
   },
   methods: {
     moveBall (ev) {
       const f = this.$refs.foo
       const container = this.$refs.ballspace.getBoundingClientRect()
-      f.style.transform = 'translateY('+(ev.clientY-container.top)+'px)'
-      f.style.transform += 'translateX('+(ev.clientX-container.left)+'px)'
+      f.style.transform = 'translateY(' + (ev.clientY - container.top) + 'px)'
+      f.style.transform += 'translateX(' + (ev.clientX - container.left) + 'px)'
     },
     onMousemove (e) {
       this.xPos = e.clientX

@@ -2,22 +2,22 @@
   <q-page class="flex flex-center column">
     <p class="text-h4">Fun with canvas and Images</p>
     <div>
-    <input 
-      type="file" 
-      name="uploadfile" 
-      id="file-selector" 
-      ref="addFile" 
-      @change="doUploadImg" 
+    <input
+      type="file"
+      name="uploadfile"
+      id="file-selector"
+      ref="addFile"
+      @change="doUploadImg"
       style="display:none;"
     />
     <q-btn
       class="q-ma-xs q-mb-md"
       push
-      color="white" 
-      for="file-selector" 
-      id="fileButton" 
+      color="white"
+      for="file-selector"
+      id="fileButton"
       text-color="primary"
-      @click="openFileSelection" 
+      @click="openFileSelection"
       label="Upload image"
     />
     </div>
@@ -47,21 +47,21 @@
 </template>
 
 <script>
-import { 
-  getBase64, 
-  getLowResImage, 
-  getFileExt, 
-  checkImageSignatur, 
-  getGrayscaleIMG, 
-  getInvertedIMG, 
-  getSepaiIMG 
-  } from '../utils/file-handling'
+import {
+  getBase64,
+  getLowResImage,
+  getFileExt,
+  checkImageSignatur,
+  getGrayscaleIMG,
+  getInvertedIMG,
+  getSepaiIMG
+} from '../utils/file-handling'
 
 export default {
   name: 'CanvasFun',
   methods: {
     openFileSelection (event) {
-      if(event.target.id !== 'fileButton') this.$refs.addFile.click()
+      if (event.target.id !== 'fileButton') this.$refs.addFile.click()
     },
     async doUploadImg (event) {
       event.preventDefault()
@@ -112,7 +112,8 @@ export default {
           type: sepaiIMG.split(',')[0] + ','
         }
       } else {
-        getNotify().then(notify => notify.default('wrong type of file!', 'Error', 4500))
+        console.error('wrong type of file!')
+        // getNotify().then(notify => notify.default('wrong type of file!', 'Error', 4500))
       }
     }
   },
@@ -128,7 +129,7 @@ export default {
         'FFD8FFE3',
         'FFD8FFE2',
         'FFD8FFE1',
-        '424D',     // bmp
+        '424D', // bmp
         '52494646', // webP
         '57454250',
         '4D4D002B', // tif

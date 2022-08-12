@@ -6,7 +6,7 @@
       <div class="theme-container q-my-sm">
         <q-btn push color="primary" class="q-ma-xs" label="Write to console" @click="fanzyConsole()" />
         <q-input clearable class="q-mb-xs" color="blue-12" v-model="consoleText" style="width: 98%"/>
-        
+
         <div class="theme-content q-mb-xs q-mt-sm">
           <div class="vertical-middle q-pb-sm q-px-sm" style="position:relative; top:-0.6em; left:1em; background-color: #FFF; display:inline">General</div>
           <div class="flex" style="flex-direction: row; align-items: center; justify-content: center;">
@@ -100,7 +100,7 @@
 
 <script>
 export default {
-  name: 'Console',
+  name: 'ConsoleOut',
 
   mounted () {
 
@@ -110,25 +110,25 @@ export default {
   },
   methods: {
     fanzyConsole () {
-      const style = 'background-color: ' + this.backgroundColor + '; color: ' + this.fontColor + '; border: ' + this.borderSize + 'px solid ' 
-                    + this.borderColor + '; font-size: ' + this.fontSize + 'px; border-radius: 4px; padding:'+ this.consolePadding + 'px'
-      console.log("%c" + this.consoleText, style); 
+      const style = 'background-color: ' + this.backgroundColor + '; color: ' + this.fontColor + '; border: ' + this.borderSize + 'px solid ' +
+                    this.borderColor + '; font-size: ' + this.fontSize + 'px; border-radius: 4px; padding:' + this.consolePadding + 'px'
+      console.log('%c' + this.consoleText, style)
     },
     ansiConsole () {
       /**
        * https://developer.chrome.com/docs/devtools/console/format-style/
-       * 
+       *
        * '\x1B[41;93;4mHello'
        * ansci start --> \x1B[
        * background  --> 41;
        * fontcolor   --> 93;
        * fontstyle   --> 4m
        */
-      const hello = '\x1B[41;93;4mHello';
-      const space = '\x1B[m ';
-      const world = '\x1B[34;102;3mWorld';
+      const hello = '\x1B[41;93;4mHello'
+      const space = '\x1B[m '
+      const world = '\x1B[34;102;3mWorld'
 
-      console.log(hello + space + world);
+      console.log(hello + space + world)
     }
   },
 

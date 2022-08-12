@@ -19,7 +19,7 @@
 
 export default {
   components: { },
-  name: 'Slider',
+  name: 'SliderCaptcha',
   emits: ['bot-status'],
 
   watch: {

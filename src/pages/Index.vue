@@ -23,15 +23,15 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'PageIndex',
-  mounted() {
+  mounted () {
     this.getDate()
     this.timeUpdate = setInterval(() => { this.getDate() }, 500)
   },
-  unmounted(){
+  unmounted () {
     clearInterval(this.timeUpdate)
   },
   methods: {
@@ -39,11 +39,11 @@ export default defineComponent({
       const minutes = tempDate.getMinutes()
       const seconds = tempDate.getSeconds()
       const hourToday = tempDate.getHours()
-      const minutesToday = 60* hourToday + minutes
-      const secondsToday =  60* minutesToday + seconds
+      const minutesToday = 60 * hourToday + minutes
+      const secondsToday = 60 * minutesToday + seconds
       this.$refs.secCircle.style.transform = `rotate(${6 * secondsToday}deg)`
       this.$refs.minCircle.style.transform = `rotate(${6 * minutesToday}deg)`
-      this.$refs.hourCircle.style.transform = `rotate(${30 * hourToday + (minutesToday/60)}deg)`
+      this.$refs.hourCircle.style.transform = `rotate(${30 * hourToday + (minutesToday / 60)}deg)`
     },
     getDate () {
       const tempDate = new Date()
@@ -52,18 +52,18 @@ export default defineComponent({
       const day = this.days[tempDate.getDay()]
       const dayNumber = this.zeroPadding(tempDate.getDate(), 2)
       this.myDate = day + '/' + dayNumber + ' - ' + month + ' - ' + year
-      const hours = this.zeroPadding(tempDate.getHours(),2)
-      const minutes = this.zeroPadding(tempDate.getMinutes(),2)
-      const seconds = this.zeroPadding(tempDate.getSeconds(),2)
+      const hours = this.zeroPadding(tempDate.getHours(), 2)
+      const minutes = this.zeroPadding(tempDate.getMinutes(), 2)
+      const seconds = this.zeroPadding(tempDate.getSeconds(), 2)
       this.myTime = hours + ':' + minutes + ':' + seconds
       this.doClickTimer(tempDate)
     },
-    zeroPadding(num, digit) {
-      var zero = '';
-        for(var i = 0; i < digit; i++) {
-            zero += '0';
-        }
-      return (zero + num).slice(-digit);
+    zeroPadding (num, digit) {
+      let zero = ''
+      for (let i = 0; i < digit; i++) {
+        zero += '0'
+      }
+      return (zero + num).slice(-digit)
     }
   },
   data () {

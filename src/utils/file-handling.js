@@ -42,7 +42,7 @@ export function getLowResImage (data, width) {
     img.error = function () {
       reject(new DOMException('Problem parsing input file.'))
     }
-          console.log('LowRes Base64: ', img.src)
+    console.log('LowRes Base64: ', img.src)
   })
 }
 /**
@@ -58,15 +58,15 @@ export function getGrayscaleIMG (data) {
       canvas.width = this.width
       canvas.height = this.height
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const data = imageData.data;
-      for (var i = 0; i < data.length; i += 4) {
-          var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
-          data[i]     = avg; // red
-          data[i + 1] = avg; // green
-          data[i + 2] = avg; // blue
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+      const data = imageData.data
+      for (let i = 0; i < data.length; i += 4) {
+        const avg = (data[i] + data[i + 1] + data[i + 2]) / 3
+        data[i] = avg // red
+        data[i + 1] = avg // green
+        data[i + 2] = avg // blue
       }
-      ctx.putImageData(imageData, 0, 0);
+      ctx.putImageData(imageData, 0, 0)
 
       img.src = canvas.toDataURL()
       resolve(img.src)
@@ -89,15 +89,15 @@ export function getInvertedIMG (data) {
       canvas.width = this.width
       canvas.height = this.height
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const data = imageData.data;
-      for (var i = 0; i < data.length; i += 4) {
-          data[i]     = 255 - data[i];     // red
-          data[i + 1] = 255 - data[i + 1]; // green
-          data[i + 2] = 255 - data[i + 2]; // blue
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+      const data = imageData.data
+      for (let i = 0; i < data.length; i += 4) {
+        data[i] = 255 - data[i] // red
+        data[i + 1] = 255 - data[i + 1] // green
+        data[i + 2] = 255 - data[i + 2] // blue
       }
-      ctx.putImageData(imageData, 0, 0);
-      ctx.putImageData(imageData, 0, 0);
+      ctx.putImageData(imageData, 0, 0)
+      ctx.putImageData(imageData, 0, 0)
 
       img.src = canvas.toDataURL()
       resolve(img.src)
@@ -120,17 +120,17 @@ export function getSepaiIMG (data) {
       canvas.width = this.width
       canvas.height = this.height
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const data = imageData.data;
-      for (var i = 0; i < data.length; i += 4) {
-          const red = data[i]   
-          const green = data[i + 1] 
-          const blue = data[i + 2]
-          data[i] = 0.393*(red) + 0.769*(green) + 0.189*(blue)
-          data[i + 1] = 0.349*(red) + 0.686*(green) + 0.168*(blue)
-          data[i + 2] = 0.272*(red) + 0.534*(green) + 0.131*(blue)
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+      const data = imageData.data
+      for (let i = 0; i < data.length; i += 4) {
+        const red = data[i]
+        const green = data[i + 1]
+        const blue = data[i + 2]
+        data[i] = 0.393 * (red) + 0.769 * (green) + 0.189 * (blue)
+        data[i + 1] = 0.349 * (red) + 0.686 * (green) + 0.168 * (blue)
+        data[i + 2] = 0.272 * (red) + 0.534 * (green) + 0.131 * (blue)
       }
-      ctx.putImageData(imageData, 0, 0);
+      ctx.putImageData(imageData, 0, 0)
 
       img.src = canvas.toDataURL()
       resolve(img.src)

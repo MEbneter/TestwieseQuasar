@@ -34,6 +34,10 @@
 </template>
 
 <script>
+/**
+ * Todo:
+ * Drag n Drop behavior can be improved
+ */
 export default {
   name: 'UploadComponent',
   props: ['fileData', 'myKey'],

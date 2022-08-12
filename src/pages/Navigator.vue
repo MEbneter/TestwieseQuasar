@@ -3,15 +3,15 @@
     <p class="text-h4 text-center">Navigator-Tests</p>
     <q-list v-for="item in navigatorItems" :key="item" separator bordered>
     <q-item dense class="q-px-sm q-ma-xs column" >
-      <p class="text-h6" style="margin-right:180px">{{item.title}}</p>      
+      <p class="text-h6" style="margin-right:180px">{{item.title}}</p>
       <p style="margin-right:180px">{{item.text}}</p>
       <div style="position:absolute; top:0.5em; right:0.5em; width: 180px">
-        <q-btn 
-          color="blue-grey-14" 
-          outline dense label="print object in console" 
-          @click="getNavigatorItem(item.key)" 
+        <q-btn
+          color="blue-grey-14"
+          outline dense label="print object in console"
+          @click="getNavigatorItem(item.key)"
         />
-        <q-btn 
+        <q-btn
           round
           dense
           v-if="item.key === 'clipboard'"
@@ -32,8 +32,8 @@
 
 <script>
 export default {
-  name: 'Navigator',
-  setup() {
+  name: 'NavigatorAPI',
+  setup () {
     const navigatorItems = [
       {
         title: 'Navigator.connection',
@@ -182,7 +182,7 @@ export default {
       copyToClipboard,
       navigatorItems
     }
-  },
+  }
 }
 </script>
 

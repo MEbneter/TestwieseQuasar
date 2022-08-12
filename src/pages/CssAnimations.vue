@@ -18,8 +18,8 @@
 
 <script>
 export default {
-  name: 'Animations',
-  setup() {
+  name: 'CssAnimations',
+  setup () {
 
   }
 }
@@ -62,7 +62,7 @@ export default {
       transform: scale(0); /* seeting back to initial size */
     }
   }
-  
+
   #parAnimate {
   animation-duration: 3s;
   animation-name: slidein;
