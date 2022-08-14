@@ -41,6 +41,7 @@
  * Todo:
  * Error Handling
  * Text, html, img detection?
+ * export example base64 in seperate json
  */
 export default {
   name: 'Base64Viewer',

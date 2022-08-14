@@ -11,7 +11,7 @@
   </q-page>
 </template>
 <script>
-import ColorPicker from './ColorPicker'
+import ColorPicker from '../components/ColorPicker'
 export default {
   components: { ColorPicker },
   methods: {
