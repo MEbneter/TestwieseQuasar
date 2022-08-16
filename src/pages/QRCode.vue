@@ -8,30 +8,30 @@
       type="textarea"
       style="width: 80%"
     />
-    <q-btn push color="white" text-color="primary" label="Generate code" @click="doIt"/>
+    <q-btn push class="q-ma-xs" color="white" text-color="primary" label="Generate code" @click="generateCode"/>
   </q-page>
 </template>
 
 <script>
 import QRCode from 'qrcode'
-// import { computed, ref } from 'vue'
 export default {
   name: 'QR Code',
   mounted () {
-    this.doIt()
+    this.generateCode()
   },
   methods: {
-    doIt () {
+    generateCode () {
       const canvas = document.getElementById('canvas')
       QRCode.toCanvas(canvas, this.myQRString, function (error) {
         if (error) console.error(error)
-        console.log('success!')
+        console.info('Success, QR was generated.')
       })
     }
   },
   data () {
     return {
-      myQRString: 'Hier kann dein QR-String stehen.'
+      // the prefix 'otpauth://totp/SecretKey?secret=' is needed for TOTP-TokenQR (2FA)
+      myQRString: 'otpauth://totp/SecretKey?secret=OE3FIMKTIU2WO22TGFXCYTKMKNMGEMSVKFYCSTTBF5DSS5LGOVKA'
     }
   }
 }
