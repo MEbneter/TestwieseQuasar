@@ -21,6 +21,7 @@ const routes = [
       { path: '/event', component: () => import('pages/CustomEvent.vue') },
       { path: '/bounce', component: () => import('src/pages/DeBounce.vue') },
       { path: '/video', component: () => import('pages/Videos.vue') },
+      { path: '/qrcode', component: () => import('pages/QRCode.vue') },
       { path: '/console', component: () => import('src/pages/ConsoleOut.vue') }
     ]
   },

@@ -116,6 +116,11 @@ const linksList = [
     link: '/base64'
   },
   {
+    title: 'QRCode',
+    icon: 'qr_code_2',
+    link: '/qrcode'
+  },
+  {
     title: 'Custom Event',
     icon: 'festival',
     link: '/event'
