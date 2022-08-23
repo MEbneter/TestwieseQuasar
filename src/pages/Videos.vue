@@ -15,7 +15,7 @@
         <q-video src="https://www.youtube.com/watch?v=Cr5tFKzCwQk" />
         <q-video src="https://www.youtube.com/embed/Cr5tFKzCwQk" />
         OWASP top 10 api-url
-        https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=2&playlistId=PLyqga7AXMtPOguwtCCXGZUKvd2CDCmUgQ&key=AIzaSyC7ovnTrP441Xk2okFT4js3MRR5CUHvW5U
+        https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=2&playlistId=PLyqga7AXMtPOguwtCCXGZUKvd2CDCmUgQ&key=isChN0tm1Ne
       -->
   </q-page>
 </template>
