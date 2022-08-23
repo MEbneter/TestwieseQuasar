@@ -19,7 +19,12 @@
         @click="base64 = base64Demo"
       />
     </div>
-    <div class="text-h6">Base64</div>
+    <span style="margin:0; padding:0; width: 75%; height: 1px">
+        <q-chip class="text-overline float-right" outline icon-right="mood" color="green-9" v-if="isBase64">Is base64 </q-chip>
+        <q-chip class="text-overline float-right" outline icon-right="mood_bad" color="negative" v-else>Not base64 </q-chip>
+    </span>
+      <div class="text-h6" style="">Base64</div>
+
     <q-input
       v-model="base64"
       class="theme-container"
@@ -41,11 +46,26 @@
  * Todo:
  * Error Handling
  * Text, html, img detection?
- * export example base64 in seperate json
+ * export example base64 in seperate json aGFsbG8=
  */
 export default {
   name: 'Base64Viewer',
   components: { },
+  computed: {
+    isBase64 () {
+      // eslint-disable-next-line no-useless-escape
+      const notBase64 = /[^A-Z0-9+\/=]/i
+      if (typeof this.base64 !== 'string') return
+      const len = this.base64.length
+      if (!len || len % 4 !== 0 || notBase64.test(this.base64)) {
+        return false
+      }
+      const firstPaddingChar = this.base64.indexOf('=')
+      return firstPaddingChar === -1 ||
+        firstPaddingChar === len - 1 ||
+        (firstPaddingChar === len - 2 && this.base64[len - 1] === '=')
+    }
+  },
   methods: {
     getBinaryFromAnsi () {
       return atob(this.base64)
@@ -76,4 +96,11 @@ export default {
     overflow: hidden;
     word-break: break-all;
   }
+</style>
+<style>
+.q-chip__icon {
+  margin-left: .1em;
+  font-size: 2em;
+  color: black
+}
 </style>
