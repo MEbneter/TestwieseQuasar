@@ -14,6 +14,8 @@
         watch?v= muss mit embeded/ ersetzt werden !!!
         <q-video src="https://www.youtube.com/watch?v=Cr5tFKzCwQk" />
         <q-video src="https://www.youtube.com/embed/Cr5tFKzCwQk" />
+        OWASP top 10 api-url
+        https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=2&playlistId=PLyqga7AXMtPOguwtCCXGZUKvd2CDCmUgQ&key=AIzaSyC7ovnTrP441Xk2okFT4js3MRR5CUHvW5U
       -->
   </q-page>
 </template>
@@ -21,8 +23,14 @@
 <script>
 /**
  * Todo:
- * Use the GoogleAPI to get all videos of the playlist
+ * Use the GoogleAPI to get all videos of the playlist (https://developers.google.com/youtube/v3/docs/playlists/list)
  * Text-field to enter video-playlist-url
+ *    API-URL = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults='
+ *        // mit nextPageToken //
+ *        + NResults + '&playlistId=' + ListID + '&pageToken=' + NextPageToken +'&key=' + APIKey
+ *        // ohne nextPageToken //
+ *        + NResults + '&playlistId=' + ListID + '&key=' + APIKey;
+ * Get own legit api-key
  */
 import { computed, ref } from 'vue'
 export default {
