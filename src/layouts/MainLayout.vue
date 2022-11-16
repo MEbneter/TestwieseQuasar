@@ -121,6 +121,11 @@ const linksList = [
     link: '/qrcode'
   },
   {
+    title: 'Cam',
+    icon: 'camera',
+    link: '/camimg'
+  },
+  {
     title: 'Custom Event',
     icon: 'festival',
     link: '/event'

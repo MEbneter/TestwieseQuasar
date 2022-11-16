@@ -22,6 +22,7 @@ const routes = [
       { path: '/bounce', component: () => import('src/pages/DeBounce.vue') },
       { path: '/video', component: () => import('pages/Videos.vue') },
       { path: '/qrcode', component: () => import('pages/QRCode.vue') },
+      { path: '/camimg', component: () => import('pages/CamImg.vue') },
       { path: '/console', component: () => import('src/pages/ConsoleOut.vue') }
     ]
   },
