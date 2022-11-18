@@ -7,7 +7,7 @@
         v-model="myQRString"
         filled
         type="textarea"
-        style="width: 80%"
+        style="width: 660px"
       />
       <q-page-sticky position="bottom-right" :offset="[18,80]">
         <q-btn @click="generateCode" fab icon="draw" color="blue" />
@@ -34,6 +34,23 @@ export default {
     StreamBarcodeReader
   },
   mounted () {
+    /**
+     * devtools for mobile (https://github.com/liriliri/eruda)
+     * only for developement, remove asap
+     * maybe remove or change the condition if your not on Android
+     */
+    if (navigator.userAgent.includes('Android')) {
+      const script = document.createElement('script')
+      script.src = '//cdn.jsdelivr.net/npm/eruda'
+      document.body.appendChild(script)
+      script.onload = function () {
+      // eslint-disable-next-line no-undef
+        eruda.init()
+      }
+    }
+    /**
+     * devtools for mobile
+     */
     this.generateCode()
   },
   methods: {
