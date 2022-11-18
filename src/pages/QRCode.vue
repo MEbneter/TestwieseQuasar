@@ -39,7 +39,7 @@ export default {
      * only for developement, remove asap
      * maybe remove or change the condition if your not on Android
      */
-    if (navigator.userAgent.includes('Android')) {
+    if (navigator.userAgent.includes('Android') && process.env.DEV) {
       const script = document.createElement('script')
       script.src = '//cdn.jsdelivr.net/npm/eruda'
       document.body.appendChild(script)
