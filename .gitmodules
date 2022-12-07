@@ -1,0 +1,6 @@
+[submodule "shared_components"]
+	path = shared_components
+	url = https://github.com/MEbneter/shared_components
+[submodule "src/components/shared_components"]
+	path = src/components/shared_components
+	url = https://github.com/MEbneter/shared_components
