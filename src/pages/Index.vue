@@ -19,14 +19,17 @@
         <div style="top: -70px" id="hourCircle" ref="hourCircle" class="clockPointer" />
       </div>
     </div>
+    <Spinner />
   </q-page>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import Spinner from '../components/shared_components/spinner.vue'
 
 export default defineComponent({
   name: 'PageIndex',
+  components: { Spinner },
   mounted () {
     this.getDate()
     this.timeUpdate = setInterval(() => { this.getDate() }, 500)
